@@ -1,0 +1,25 @@
+services:
+  backend:
+    container_name: placemetric-backend
+    build: ./backend
+    env_file: .env
+    ports:
+      - "${APP_PORT}:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    image: postgres:15-alpine
+    container_name: placemetric-db
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    healthcheck:
+      test: [ "CMD-SHELL", "sh -c 'pg_isready -U ${POSTGRES_USER} -d
+      ${POSTGRES_DB}'" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5

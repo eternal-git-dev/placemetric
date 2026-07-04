@@ -1,0 +1,61 @@
+# ==============================================================================
+# Django Core
+# ==============================================================================
+*.log
+*.pot
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# ==============================================================================
+# Python Byte-compiled / Cache
+# ==============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ==============================================================================
+# Environments & Secrets (Never commit credentials!)
+# ==============================================================================
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak
+vcap.json
+
+# ==============================================================================
+# Django Media & Collected Static
+# ==============================================================================
+# Ignore user-uploaded media files
+media/
+
+# Ignore static files collected via 'python manage.py collectstatic'
+# (Only ignore this if you regenerate your static assets during deployment)
+staticfiles/
+static_cdn/
+
+# ==============================================================================
+# IDEs and Editors
+# ==============================================================================
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# ==============================================================================
+# Testing and Coverage
+# ==============================================================================
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.mo
+.pytest_cache/
