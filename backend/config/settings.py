@@ -30,6 +30,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'users.apps.UsersConfig',
+    'products.apps.ProductsConfig'
 ]
 
 MIDDLEWARE = [
@@ -42,7 +44,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'backend.urls'
+ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
     {
@@ -59,7 +61,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'backend.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 
 # Database
@@ -72,7 +74,7 @@ DATABASES = {
         "USER": os.getenv("POSTGRES_USER", "django"),
         "PASSWORD": os.getenv("POSTGRES_PASSWORD", ""),
         "HOST": os.getenv("DB_HOST", ""),
-        "PORT": os.getenv("DB_PORT", 5433),
+        "PORT": os.getenv("DB_PORT", 5432),
     }
 }
 
@@ -112,3 +114,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+AUTH_USER_MODEL = 'users.User'
